@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #282866;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transport.sys.controller.StaffDashboardController">
+    <children>
+        <!-- Top Bar -->
+        <HBox alignment="CENTER_LEFT" prefHeight="60.0" style="-fx-background-color: #020054; -fx-border-color: #FBDB50; -fx-border-width: 0 0 2 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label text="EASY TAP - STAFF">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="welcomeLabel" text="Welcome, Staff">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="40.0" />
+                    </HBox.margin>
+                </Label>
+                <Separator prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button fx:id="logoutButton" mnemonicParsing="false" text="LOGOUT">
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </HBox>
+
+        <!-- Main Content -->
+        <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <children>
+                <!-- Left Panel: Card Operations -->
+                <VBox prefWidth="600.0" spacing="15.0" style="-fx-background-color: #282866;" HBox.hgrow="ALWAYS">
+                    <children>
+                        <!-- Card Scan Section -->
+                        <VBox spacing="10.0" style="-fx-background-color: #002653; -fx-border-color: #FBDB50; -fx-border-width: 1;">
+                            <children>
+                                <Label text="SCAN CARD" styleClass="section-title">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <TextField fx:id="rfidScanField" promptText="Scan or enter RFID" HBox.hgrow="ALWAYS" />
+                                        <Button fx:id="scanCardButton" mnemonicParsing="false" text="SCAN" prefWidth="80.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                            </padding>
+                        </VBox>
+
+                        <!-- Card Info Display -->
+                        <VBox spacing="10.0" style="-fx-background-color: #002653; -fx-border-color: #FBDB50; -fx-border-width: 1;">
+                            <children>
+                                <Label text="CARD INFORMATION">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <HBox spacing="20.0">
+                                    <children>
+                                        <VBox spacing="5.0">
+                                            <children>
+                                                <Label text="Status:" />
+                                                <Label fx:id="cardStatusLabel" text="---" style="-fx-text-fill: #FBDB50; -fx-font-weight: bold;" />
+                                            </children>
+                                        </VBox>
+                                        <VBox spacing="5.0">
+                                            <children>
+                                                <Label text="Balance:" />
+                                                <Label fx:id="cardBalanceLabel" text="₱0.00" style="-fx-text-fill: #FBDB50; -fx-font-weight: bold;" />
+                                            </children>
+                                        </VBox>
+                                        <VBox spacing="5.0">
+                                            <children>
+                                                <Label text="Destination:" />
+                                                <Label fx:id="cardDestinationLabel" text="None" style="-fx-text-fill: #FBDB50; -fx-font-weight: bold;" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                            </padding>
+                        </VBox>
+
+                        <!-- Add Balance Section -->
+                        <VBox spacing="10.0" style="-fx-background-color: #002653; -fx-border-color: #FBDB50; -fx-border-width: 1;">
+                            <children>
+                                <Label text="ADD BALANCE">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <TextField fx:id="addBalanceAmountField" promptText="Enter amount (₱)" HBox.hgrow="ALWAYS" />
+                                        <Button fx:id="addBalanceButton" mnemonicParsing="false" text="ADD" prefWidth="80.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                            </padding>
+                        </VBox>
+
+                        <!-- Change Destination Section -->
+                        <VBox spacing="10.0" style="-fx-background-color: #002653; -fx-border-color: #FBDB50; -fx-border-width: 1;">
+                            <children>
+                                <Label text="CHANGE DESTINATION">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <ComboBox fx:id="destinationComboBox" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                        <Button fx:id="changeDestinationButton" mnemonicParsing="false" text="SET" prefWidth="80.0" />
+                                    </children>
+                                </HBox>
+                                <Button fx:id="viewDestinationsButton" mnemonicParsing="false" text="VIEW ALL DESTINATIONS" maxWidth="Infinity" />
+                            </children>
+                            <padding>
+                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                            </padding>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </VBox>
+
+                <!-- Right Panel: Messages -->
+                <VBox prefWidth="600.0" spacing="15.0" style="-fx-background-color: #282866;" HBox.hgrow="ALWAYS">
+                    <children>
+                        <!-- Messages Display -->
+                        <VBox spacing="10.0" style="-fx-background-color: #002653; -fx-border-color: #FBDB50; -fx-border-width: 1;" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label text="SYSTEM MESSAGES">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="messageLabel" text="Ready to scan card..." wrapText="true" style="-fx-text-fill: #FBDB50;" VBox.vgrow="ALWAYS" />
+                            </children>
+                            <padding>
+                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                            </padding>
+                        </VBox>
+
+                        <!-- Quick Info -->
+                        <VBox spacing="10.0" style="-fx-background-color: #002653; -fx-border-color: #FBDB50; -fx-border-width: 1;">
+                            <children>
+                                <Label text="QUICK GUIDE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label text="1. Click SCAN to activate card scanner" wrapText="true" />
+                                <Label text="2. Scan RFID card or enter UID manually" wrapText="true" />
+                                <Label text="3. Card info will display above" wrapText="true" />
+                                <Label text="4. Add balance or change destination" wrapText="true" />
+                            </children>
+                            <padding>
+                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                            </padding>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
